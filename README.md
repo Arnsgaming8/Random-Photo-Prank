@@ -21,19 +21,7 @@ The website uses multiple free photo APIs to fetch random images:
 
 The script randomly selects one of these APIs on each load to provide variety.
 
-## Deployment to GitHub Pages
 
-1. Push all files to your GitHub repository
-2. Go to repository Settings
-3. Scroll down to "GitHub Pages" section
-4. Under "Source", select "Deploy from a branch"
-5. Choose the main branch and root folder
-6. Click "Save"
-7. Your site will be available at `https://yourusername.github.io/repository-name`
-
-## Local Development
-
-Simply open `index.html` in your web browser. No server required for basic functionality.
 
 ## File Structure
 
@@ -44,8 +32,3 @@ Simply open `index.html` in your web browser. No server required for basic funct
 └── README.md       # This file
 ```
 
-## Customization
-
-- Change photo dimensions by modifying the `800/800` parameters in `script.js`
-- Add more photo APIs by extending the `photoApis` array
-- Modify colors and styles in `styles.css`
