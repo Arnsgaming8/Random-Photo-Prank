@@ -1,0 +1,13 @@
+# GitHub Pages configuration for static site
+plugins: []
+markdown: kramdown
+highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
+incremental: false
+
+# Disable Jekyll processing for static files
+exclude:
+  - README.md
+  - .gitignore
+  - .nojekyll
