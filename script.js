@@ -57,4 +57,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Optional: Click to reload
     document.getElementById('photo-container').addEventListener('click', loadRandomPhoto);
+    
+    // Rainbow button click to refresh page
+    const refreshButton = document.getElementById('refresh-button');
+    if (refreshButton) {
+        refreshButton.addEventListener('click', function() {
+            location.reload();
+        });
+    }
 });

@@ -17,8 +17,10 @@ main {
     width: 100%;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 40px;
 }
 
 #photo-container {
@@ -63,5 +65,108 @@ main {
     #photo-container {
         width: 90vw;
         height: 90vw;
+    }
+    
+    main {
+        gap: 20px;
+    }
+}
+
+/* Rainbow 3D Button Styles */
+.rainbow-3d-button {
+    position: relative;
+    padding: 20px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(45deg, 
+        #ff0000, #ff7f00, #ffff00, #00ff00, 
+        #0000ff, #4b0082, #9400d3, #ff0000);
+    background-size: 400% 400%;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    box-shadow: 
+        0 8px 0 rgba(0, 0, 0, 0.3),
+        0 10px 20px rgba(0, 0, 0, 0.4),
+        inset 0 2px 5px rgba(255, 255, 255, 0.3),
+        inset 0 -2px 5px rgba(0, 0, 0, 0.3);
+    transform: perspective(1000px) rotateX(0deg);
+    transition: all 0.3s ease;
+    animation: rainbowShift 3s ease-in-out infinite;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.rainbow-3d-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, 
+        rgba(255, 255, 255, 0.3) 0%, 
+        transparent 50%, 
+        rgba(255, 255, 255, 0.1) 100%);
+    border-radius: 15px;
+    z-index: -1;
+}
+
+.rainbow-3d-button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.1), 
+        transparent);
+    transform: rotate(45deg);
+    transition: all 0.5s;
+    z-index: -1;
+}
+
+.rainbow-3d-button:hover {
+    transform: perspective(1000px) rotateX(-10deg) translateY(-2px);
+    box-shadow: 
+        0 12px 0 rgba(0, 0, 0, 0.4),
+        0 15px 30px rgba(0, 0, 0, 0.5),
+        inset 0 2px 5px rgba(255, 255, 255, 0.4),
+        inset 0 -2px 5px rgba(0, 0, 0, 0.4);
+    animation: rainbowShift 0.5s ease-in-out infinite;
+}
+
+.rainbow-3d-button:hover::after {
+    animation: shimmer 0.5s ease-in-out;
+}
+
+.rainbow-3d-button:active {
+    transform: perspective(1000px) rotateX(-15deg) translateY(2px);
+    box-shadow: 
+        0 4px 0 rgba(0, 0, 0, 0.3),
+        0 6px 15px rgba(0, 0, 0, 0.4),
+        inset 0 2px 8px rgba(0, 0, 0, 0.4),
+        inset 0 -2px 8px rgba(255, 255, 255, 0.2);
+}
+
+@keyframes rainbowShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+@media (max-width: 768px) {
+    .rainbow-3d-button {
+        padding: 15px 30px;
+        font-size: 16px;
+        margin: 0 20px;
     }
 }
